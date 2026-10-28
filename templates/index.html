@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kualitas Udara – Dashboard ISPU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="atas">
+    <div class="atas-isi">
+      <div>
+        <h1>Kualitas Udara</h1>
+        <p class="sub" id="rentang">Memuat data…</p>
+      </div>
+      <nav class="tab" role="tablist" aria-label="Bagian dashboard">
+        <button role="tab" class="aktif" data-tab="kategori" aria-selected="true">Kategori kualitas udara</button>
+        <button role="tab" data-tab="tren" aria-selected="false">Perubahan polusi</button>
+        <button role="tab" data-tab="banding" aria-selected="false">Sebelum &amp; sesudah dibersihkan</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ KATEGORI KUALITAS UDARA ============ -->
+    <section id="tab-kategori" class="panel">
+      <div class="baris-kontrol">
+        <button class="ikon" id="hari-sebelum" aria-label="Hari sebelumnya">‹</button>
+        <label>Tanggal
+          <input type="date" id="tanggal">
+        </label>
+        <button class="ikon" id="hari-sesudah" aria-label="Hari berikutnya">›</button>
+      </div>
+
+      <div class="hero">
+        <div class="hero-angka">
+          <div class="ispu-nilai" id="ispu-nilai">–</div>
+          <div class="ispu-label">indeks ISPU</div>
+        </div>
+        <div class="hero-teks">
+          <h2 id="kat-nama">–</h2>
+          <p id="kat-saran" class="saran"></p>
+          <p class="dominan">Polutan penentu: <strong id="kat-dominan">–</strong></p>
+        </div>
+      </div>
+
+      <div class="skala-bungkus">
+        <div class="skala" id="skala"></div>
+        <div class="penanda" id="penanda"><span id="penanda-teks"></span></div>
+        <div class="skala-label" id="skala-label"></div>
+      </div>
+
+      <div class="dua-kolom">
+        <div>
+          <h3>Indeks tiap parameter</h3>
+          <p class="catatan">Nilai ISPU hari ini diambil dari parameter dengan indeks tertinggi.</p>
+          <div id="param-bar" class="param-bar"></div>
+        </div>
+        <div>
+          <h3>Sebaran kategori seluruh hari</h3>
+          <div id="distribusi" class="distribusi"></div>
+          <p class="catatan" id="ringkas-teks"></p>
+        </div>
+      </div>
+
+      <h3>Kategori per hari</h3>
+      <p class="catatan">Setiap kotak adalah satu hari. Klik untuk melihat detailnya.</p>
+      <div id="kalender" class="kalender"></div>
+    </section>
+
+    <!-- ============ GRAFIK PERUBAHAN POLUSI ============ -->
+    <section id="tab-tren" class="panel" hidden>
+      <div class="kontrol-grid">
+        <fieldset>
+          <legend>Polutan</legend>
+          <div id="chip-polutan" class="chips"></div>
+        </fieldset>
+        <label>Resolusi
+          <select id="tren-resolusi">
+            <option value="jam">Per jam</option>
+            <option value="hari" selected>Per hari</option>
+            <option value="minggu">Per minggu</option>
+            <option value="bulan">Per bulan</option>
+          </select>
+        </label>
+        <label>Dari <input type="date" id="tren-mulai"></label>
+        <label>Sampai <input type="date" id="tren-selesai"></label>
+        <label>Skala
+          <select id="tren-skala">
+            <option value="asli">Nilai asli</option>
+            <option value="norm">Dinormalisasi (0–100%)</option>
+          </select>
+        </label>
+      </div>
+      <p class="catatan" id="tren-info"></p>
+      <div class="grafik tinggi"><canvas id="grafik-tren"></canvas></div>
+      <h3>Ringkasan pada rentang terpilih</h3>
+      <div class="tabel-bungkus">
+        <table id="tabel-tren">
+          <thead><tr><th>Polutan</th><th class="angka">Rata-rata</th><th class="angka">Terendah</th><th class="angka">Tertinggi</th><th>Waktu tertinggi</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ SEBELUM & SESUDAH ============ -->
+    <section id="tab-banding" class="panel" hidden>
+      <div class="ringkas-angka" id="ringkas-angka"></div>
+
+      <div class="dua-kolom">
+        <div>
+          <h3>Langkah pembersihan</h3>
+          <ol class="langkah" id="langkah"></ol>
+          <div class="unduh">
+            <a class="tombol" href="/api/unduh/bersih">Unduh data bersih (CSV)</a>
+            <a class="tombol sekunder" href="/api/unduh/ispu">Unduh ISPU harian</a>
+          </div>
+        </div>
+        <div>
+          <h3>Sel kosong per kolom</h3>
+          <div class="grafik"><canvas id="grafik-kosong"></canvas></div>
+        </div>
+      </div>
+
+      <h3>Bentuk data sebelum dan sesudah</h3>
+      <div class="kontrol-grid ringkas">
+        <label>Kolom <select id="banding-kolom"></select></label>
+        <label>Resolusi
+          <select id="banding-resolusi">
+            <option value="jam">Per jam</option>
+            <option value="hari" selected>Per hari</option>
+            <option value="minggu">Per minggu</option>
+          </select>
+        </label>
+      </div>
+      <div class="grafik tinggi"><canvas id="grafik-banding"></canvas></div>
+      <p class="catatan">Garis abu-abu putus di titik yang kosong: itu data hilang pada file asli.</p>
+
+      <h3>Statistik tiap kolom</h3>
+      <div class="tabel-bungkus">
+        <table id="tabel-banding">
+          <thead>
+            <tr><th rowspan="2">Kolom</th><th colspan="2" class="angka">Sel kosong</th><th colspan="2" class="angka">Rata-rata</th><th colspan="2" class="angka">Minimum</th><th colspan="2" class="angka">Maksimum</th></tr>
+            <tr class="sub-kepala"><th class="angka">Sebelum</th><th class="angka">Sesudah</th><th class="angka">Sebelum</th><th class="angka">Sesudah</th><th class="angka">Sebelum</th><th class="angka">Sesudah</th><th class="angka">Sebelum</th><th class="angka">Sesudah</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3>Kolom yang dihapus</h3>
+      <ul class="kolom-hapus" id="kolom-hapus"></ul>
+    </section>
+  </main>
+
+  <footer>
+    Kategori mengikuti ISPU (Permen LHK No. P.14/MENLHK/SETJEN/KUM.1/7/2020). Nilai harian dihitung dari data per jam yang sudah dibersihkan.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

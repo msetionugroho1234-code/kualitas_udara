@@ -1,0 +1,303 @@
+{
+  "baris_awal": 4136,
+  "kolom_awal": 22,
+  "kolom_dihapus": [
+    {
+      "kolom": "Eth-Benzene (ug/m3)",
+      "kosong_persen": 99.9
+    },
+    {
+      "kolom": "MP-Xylene (ug/m3)",
+      "kosong_persen": 99.9
+    },
+    {
+      "kolom": "Xylene (ug/m3)",
+      "kosong_persen": 100.0
+    },
+    {
+      "kolom": "WD (degree)",
+      "kosong_persen": 3.3
+    },
+    {
+      "kolom": "SR (W/mt2)",
+      "kosong_persen": 3.3
+    },
+    {
+      "kolom": "RF (mm)",
+      "kosong_persen": 3.3
+    }
+  ],
+  "kolom_angka": [
+    "PM2.5 (ug/m3)",
+    "PM10 (ug/m3)",
+    "NO (ug/m3)",
+    "NO2 (ug/m3)",
+    "NOx (ppb)",
+    "NH3 (ug/m3)",
+    "SO2 (ug/m3)",
+    "CO (mg/m3)",
+    "Ozone (ug/m3)",
+    "Benzene (ug/m3)",
+    "Toluene (ug/m3)",
+    "RH (%)",
+    "WS (m/s)",
+    "AT (degree C)"
+  ],
+  "sel_kosong_sebelum": 4946,
+  "statistik_sebelum": {
+    "PM2.5 (ug/m3)": {
+      "kosong": 482,
+      "rata2": 23.8676,
+      "std": 14.6412,
+      "min": 0.0792,
+      "median": 21.5926,
+      "maks": 60.0163
+    },
+    "PM10 (ug/m3)": {
+      "kosong": 450,
+      "rata2": 42.6267,
+      "std": 22.4639,
+      "min": 0.9283,
+      "median": 39.0145,
+      "maks": 100.0373
+    },
+    "NO (ug/m3)": {
+      "kosong": 206,
+      "rata2": 5.2686,
+      "std": 7.3228,
+      "min": -0.4701,
+      "median": 1.9434,
+      "maks": 63.2228
+    },
+    "NO2 (ug/m3)": {
+      "kosong": 162,
+      "rata2": 11.6438,
+      "std": 6.435,
+      "min": 1.4898,
+      "median": 10.787,
+      "maks": 65.4164
+    },
+    "NOx (ppb)": {
+      "kosong": 165,
+      "rata2": 10.36,
+      "std": 7.7222,
+      "min": 0.6769,
+      "median": 8.3761,
+      "maks": 75.0383
+    },
+    "NH3 (ug/m3)": {
+      "kosong": 161,
+      "rata2": 11.7102,
+      "std": 5.8625,
+      "min": -0.0492,
+      "median": 11.6324,
+      "maks": 39.756
+    },
+    "SO2 (ug/m3)": {
+      "kosong": 285,
+      "rata2": 2.2685,
+      "std": 0.8981,
+      "min": -0.2387,
+      "median": 2.2897,
+      "maks": 6.2043
+    },
+    "CO (mg/m3)": {
+      "kosong": 156,
+      "rata2": 0.5155,
+      "std": 0.37,
+      "min": -0.3472,
+      "median": 0.452,
+      "maks": 3.0505
+    },
+    "Ozone (ug/m3)": {
+      "kosong": 262,
+      "rata2": 5.5641,
+      "std": 6.6534,
+      "min": -0.3722,
+      "median": 2.7106,
+      "maks": 58.3273
+    },
+    "Benzene (ug/m3)": {
+      "kosong": 241,
+      "rata2": 0.0446,
+      "std": 0.222,
+      "min": -0.5175,
+      "median": 0.0271,
+      "maks": 1.7604
+    },
+    "Toluene (ug/m3)": {
+      "kosong": 1791,
+      "rata2": 0.0512,
+      "std": 0.163,
+      "min": -0.5169,
+      "median": 0.0528,
+      "maks": 0.6099
+    },
+    "RH (%)": {
+      "kosong": 311,
+      "rata2": 80.1016,
+      "std": 16.5652,
+      "min": 32.9672,
+      "median": 85.0428,
+      "maks": 100.2306
+    },
+    "WS (m/s)": {
+      "kosong": 137,
+      "rata2": 0.5844,
+      "std": 0.3701,
+      "min": -0.2329,
+      "median": 0.5204,
+      "maks": 3.0565
+    },
+    "AT (degree C)": {
+      "kosong": 137,
+      "rata2": 21.9075,
+      "std": 5.6418,
+      "min": 9.84,
+      "median": 21.5,
+      "maks": 40.16
+    }
+  },
+  "duplikat_dihapus": 0,
+  "negatif_diperbaiki": {
+    "NO (ug/m3)": 94,
+    "NH3 (ug/m3)": 1,
+    "SO2 (ug/m3)": 14,
+    "CO (mg/m3)": 128,
+    "Ozone (ug/m3)": 175,
+    "Benzene (ug/m3)": 1718,
+    "Toluene (ug/m3)": 885,
+    "WS (m/s)": 58
+  },
+  "rh_dibatasi": 3,
+  "outlier_dibatasi": {
+    "NO (ug/m3)": 53,
+    "NO2 (ug/m3)": 15,
+    "NOx (ppb)": 50,
+    "CO (mg/m3)": 30,
+    "Ozone (ug/m3)": 15,
+    "Benzene (ug/m3)": 84
+  },
+  "faktor_iqr": 3.0,
+  "isi_interpolasi": 1317,
+  "isi_median": 3629,
+  "batas_interpolasi_jam": 6,
+  "baris_akhir": 4136,
+  "kolom_akhir": 16,
+  "sel_kosong_sesudah": 0,
+  "statistik_sesudah": {
+    "PM2.5 (ug/m3)": {
+      "kosong": 0,
+      "rata2": 25.0858,
+      "std": 15.0907,
+      "min": 0.0792,
+      "median": 23.1101,
+      "maks": 60.0163
+    },
+    "PM10 (ug/m3)": {
+      "kosong": 0,
+      "rata2": 44.2274,
+      "std": 23.252,
+      "min": 0.9283,
+      "median": 40.5712,
+      "maks": 100.0373
+    },
+    "NO (ug/m3)": {
+      "kosong": 0,
+      "rata2": 5.0177,
+      "std": 6.5429,
+      "min": 0.0,
+      "median": 1.9156,
+      "maks": 29.1501
+    },
+    "NO2 (ug/m3)": {
+      "kosong": 0,
+      "rata2": 11.6157,
+      "std": 6.1812,
+      "min": 1.4898,
+      "median": 10.8032,
+      "maks": 38.2717
+    },
+    "NOx (ppb)": {
+      "kosong": 0,
+      "rata2": 10.21,
+      "std": 7.0187,
+      "min": 0.6769,
+      "median": 8.4462,
+      "maks": 37.2849
+    },
+    "NH3 (ug/m3)": {
+      "kosong": 0,
+      "rata2": 11.6942,
+      "std": 5.774,
+      "min": 0.0,
+      "median": 11.7196,
+      "maks": 39.756
+    },
+    "SO2 (ug/m3)": {
+      "kosong": 0,
+      "rata2": 2.2523,
+      "std": 0.8868,
+      "min": 0.0,
+      "median": 2.2683,
+      "maks": 6.2043
+    },
+    "CO (mg/m3)": {
+      "kosong": 0,
+      "rata2": 0.514,
+      "std": 0.3485,
+      "min": 0.0,
+      "median": 0.4537,
+      "maks": 1.9211
+    },
+    "Ozone (ug/m3)": {
+      "kosong": 0,
+      "rata2": 5.3942,
+      "std": 6.4583,
+      "min": 0.0,
+      "median": 2.5338,
+      "maks": 32.5232
+    },
+    "Benzene (ug/m3)": {
+      "kosong": 0,
+      "rata2": 0.0904,
+      "std": 0.1311,
+      "min": 0.0,
+      "median": 0.0275,
+      "maks": 0.5865
+    },
+    "Toluene (ug/m3)": {
+      "kosong": 0,
+      "rata2": 0.0765,
+      "std": 0.0883,
+      "min": 0.0,
+      "median": 0.0512,
+      "maks": 0.6099
+    },
+    "RH (%)": {
+      "kosong": 0,
+      "rata2": 80.6766,
+      "std": 16.5795,
+      "min": 32.9672,
+      "median": 85.7713,
+      "maks": 100.0
+    },
+    "WS (m/s)": {
+      "kosong": 0,
+      "rata2": 0.5863,
+      "std": 0.3663,
+      "min": 0.0,
+      "median": 0.518,
+      "maks": 3.0565
+    },
+    "AT (degree C)": {
+      "kosong": 0,
+      "rata2": 21.8968,
+      "std": 5.587,
+      "min": 9.84,
+      "median": 21.475,
+      "maks": 40.16
+    }
+  },
+  "hari_ispu": 172
+}
